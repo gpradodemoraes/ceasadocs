@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Provisão de Férias e 13o Movimentação de Lotes</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../static/css/common.css">
+</head>
+<body>
+	<a class="voltar" href="../index.html">voltar</a>
+	<h1>Provisão de Férias e 13<sup><u>o</u></sup> &#8213; Movimentação de Lotes</h1>
+	<div class="article-content">
+	<ol>
+		<li>Abrir o Nectar na conta da Matriz <strong>1000</strong></li>
+		<li>Abrir <strong>"digitação de lote"</strong>, colocar a data do último dia do mês anterior e pesquisar</li>
+		<li>Navegar até o lote <strong>"Movimentação Diário Automático"</strong> que é o lote da importação da folha de pagamentos</li>
+		<li>Copiar todas as linhas e jogar em um arquivo texto em branco. Vamos chamar esse arquivo de <strong>YYYY-MM_LOTES.txt</strong></li>
+		<li>Repetir os itens acima copiando as linhas de lote de filiais <strong>1001</strong> e <strong>1002</strong> e dar paste no mesmo arquivo acima <strong>YYYY-MM_LOTES.txt</strong></li>
+		<li>Acessar a pasta do RH <strong>Y:\CONTABILIDADE\2024\11-2024\PROVISÃO</strong> e copiar esse diretório inteiro para <strong>J:\Folha\2024\Folha Pagto\11-2024\PROVISÃO</strong></li>
+		<li>Acessar a pasta do RH <strong>Y:\CONTABILIDADE\2024\11-2024\PROVISÃO</strong> e copiar esse diretório inteiro para <strong>J:\Contabilidade\Provisões\Férias e 13º\2024\PROVISÕES 11-2024</strong></li>
+		<li>Navegar até a pasta <strong>J:\Folha\2024\Folha Pagto\11-2024\PROVISÃO</strong></li>
+		<li>Abrir as planilhas:
+			<ul>
+				<li>MATRIZ\provisão_de_13ºs.xlsx</li>
+				<li>MATRIZ\provisão_de_FERIAS.xlsx</li>
+				<li>FILIAL\provisão_de_férias - 11-2024.xlsx</li>
+				<li>FILIAL\provisão_de_13ºs - 11-2024.xlsx</li>
+			</ul>
+		</li>
+		<li>Copiar os dados brutos das planilhas acima (sem ser o da planilha dinâmica) e colocar cada um em um arquivo texto da seguinte maneira:</li>
+			<p>Se estamos no mês novembro de 2024 então juntar os dois arquivos Matriz e Filial em um único arquivo de Férias e depois juntar novamente em um único arquivo de 13<sup><u>o</u></sup> salário<p>
+			<p>MATRIZ\provisão_de_FERIAS.xlsx + FILIAL\provisão_de_férias - 11-2024.xlsx &#8594; 2024-11_FERIAS.txt</p>
+			<p>MATRIZ\provisão_de_13ºs.xlsx + FILIAL\provisão_de_13ºs - 11-2024.xlsx &#8594; 2024-11_13o.txt</p>
+		<li>Gerar a planilha usando o comando:</li>
+		<pre>provisao_ferias_e_13o_processar.pl \
+	YYYY-MM_LOTES.txt \
+	MES_N_Ferias.txt \
+	MES_N_13o.txt \
+	MES_(N - 1)_Ferias.txt \
+	MES_(N - 1) 13o.txt</pre>
+		<p>No caso de novembro 2024 o comando vai ficar assim:</p>
+		<pre>provisao_ferias_e_13o_processar.pl \
+	2024-11_LOTES.txt \
+	2024-11_FERIAS.txt \
+	2024-11_13o.txt \
+	2024-10_FERIAS.txt \
+	2024-10_13o.txt</pre>
+		<p>Note que no comando acima, você vai utilizar os arquivos de outubro 2024 que foram criados no mês anterior e devem estar disponíveis.</p>
+		<p>OBS: foi criado um script auxiliar para gerar o comando acima. Bastar rodar <strong>gerar_comando_provisao_ferias_e_13o.pl</strong></p>
+		<li>Abrir a planilha gerada e conferir os valores.</li>
+		<li>Agora deixe os arquivos txt de novembro 2024 que você criou para serem usados no próximo mês.</li>
+		<li>Caso apareça uma mensagem de erro sobre o CDC e a conta contábil então ou é uma combinação de CDC e conta que não tinha no código ainda e terá de ser adicionada na mão ou é uma conta de Funcionários com um CDC de Diretoria. Nesse caso é preciso mudar a conta para uma de Diretoria (<u>Provisão de Férias - Diretoria</u> ou <u>Provisão de 13º Salário - Diretoria</u>) usando o macete do Néctar de abrir lote automático para edição</li>
+	</ol>
+	</div>
+</body>
+</html>

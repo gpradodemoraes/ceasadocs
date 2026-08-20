@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Divisão TXT Folha de Pagamento</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../static/css/common.css">
+</head>
+<body>
+	<a class="voltar" href="../index.html">voltar</a>
+	<h1>Divisão TXT Folha de Pagamento</h1>
+	<div class="article-content">
+	<ol>
+		<li>Fazer a divisão do arquivo de folha na linha de comando usando o script <strong>ceasahelper.exe -t nome_do_arquivo.txt</strong></li>
+		<li>Seguir as instruções abaixo começando com o <strong>Banco de Alimentos 1002</strong> (que é o mais fácil)</li>
+		<li>Certificar-se de que selecionou o Banco de Alimentos (depois vai fazer o mesmo para 1001 e 1000)</li>
+		<img src="../static/images/importacao_arquivo_folha_selecionar_filial.png" />
+		<hr>
+		<li>INTERFACE &#8594; Importação arquivo folha</li>
+		<img src="../static/images/importacao_arquivo_folha.png" />
+		<img src="../static/images/importacao_arquivo_folha_concluir_processo.png" />
+		<li>Executar &#8594; Deseja Concluir o processo? &#8594; Sim</li>
+		<li>Aguardar <strong>"importação sendo efetuada"</strong></li>
+		<li><strong>Aplicar</strong></li>
+		<img src="../static/images/importacao_arquivo_folha_final.png" />
+		<li>Completar o número do documento <strong>mmm/AA</strong> (ex: dez/24)</li>
+		<li><strong>Processar</strong></li>
+		<li>Aguardar <strong>"Contabilização Sendo Efetuada..."</strong></li>
+		<li>Depois que aparecer a mensagem de concluída, clicar no X para fechar.</li>
+		<li>Volte ao topo e repita as instruções acima, agora para 1001 e 1000</li>
+		<hr>
+		<li>Após a importação, deverão ser feitos lançamentos alterando os lotes de fechamento <strong>da Matriz</strong> de maneira a zerar as seguintes contas abaixo. Os lançamentos deverão ser feitos de acordo com a figura. Caso o Nilson ainda não tenha feito esses lançamentos (que tem contrapartida na conta Banco Movimento) basta lançar os valores líquidos que vem na folha de pagamento da Alimentação Escolar e do Banco de Alimentos.</li>
+		<img src="../static/images/divisao_txt_apos_importacao.png" />
+		<li>As duas contas que precisam ficar zeradas são as seguintes:</li>
+		<table class="lancamento">
+			<tr><td>Adiantamento quinzenal (Matriz)</td><td>1103001001</td></tr>
+			<tr><td>Salários a pagar (Matriz)</td><td>2101010001</td></tr>
+			<tr><td>Remuneração Conselheiros (Matriz)</td><td>2101010003</td></tr>
+		</table>
+		<li>Para fazer o lançamento de Adiantamente Quinzenal, precisa abrir novamente o PDF da folha e olhar no resumo a rúbrica <strong>601 ADIANTAMENTO</strong></li>
+		<hr>
+		<li>Finalmente, é preciso fazer lançamentos na conta Adiantamente de férias (<strong>Matriz</strong>). Essa conta não deve zerar pois sempre há aqueles que tiraram férias em um mês mas receberam o adiantamento de férias no mês anterior. Para fazer os lançamentos da conta de adiantamento de férias, precisa pegar a o resumo da folha de pagamento, rúbrica <strong>70 (DESCONTO FERIAS)</strong> e lançar tanto para a Alimentação Escolhar (filial) quanto para o Banco de Alimentos (cuja folha fica no diretório da Matriz)</li>
+		<table class="lancamento">
+			<tr><td>Adiantamento de férias</td><td>1103001002</td></tr>
+		</table>
+		<img src="../static/images/folha_desconto_de_ferias.png" />
+		<hr>
+		<li>Depois de trabalhar com as contas da Matriz, chegou a hora de fazer algo parecido porém com as contas das filiais <strong>1001</strong> e <strong>1002</strong>. As 3 contas abaixo vão precisar ficar com os saldos totalmente zerados. Para isso será usada a conta de transferência entre filiais:</li>
+		<table class="lancamento">
+			<tr><td>Adiantamento quinzenal (1001 e 1002)</td><td>1103001001</td></tr>
+			<tr><td>Salários a pagar (1001 e 1002)</td><td>2101010001</td></tr>
+			<tr><td>Adiantamento de férias (1001 e 1002)</td><td>1103001002</td></tr>
+		</table>
+		<img src="../static/images/divisao_txt_apos_importacao_filiais.png" />
+		<img src="../static/images/divisao_txt_apos_importacao_filiais_lote.png" />
+		<hr>
+		<li>Após a importação, as seguintes contas devem ser investigadas:</li>
+			<ul>
+				<li>Salários a Pagar</li>
+				<li>Remuneração Conselheiros</li>
+				<li>Pensão Alimentícia</li>
+				<li>Consignação Folha</li>
+			</ul>
+		<hr>
+		<li>Abaixo a documentação da Juliana para referência</li>
+		<a href="../static/images/colinha_julinana.png" target="_blank"><img src="../static/images/colinha_julinana_thumbnail.png" /></a>
+	</ol>
+	</div>
+</body>
+</html>

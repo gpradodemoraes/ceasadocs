@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Depósitos Judiciais</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../static/css/common.css">
+</head>
+<body>
+	<a class="voltar" href="../index.html">voltar</a>
+	<h1>Depósitos Judiciais</h1>
+	<div class="article-content">
+	<ol>
+		<li>Acessar o relatório razão do mês anterior da conta <strong>1500505001&#8213;Depósitos Judiciais</strong> do Néctar e pegar o número do SEI dos novos processos que entraram.</li>
+		<li>Entrar no SEI e procurar pelos processos. Baixar a Guia de Pagamento que contém o número do processo e o ID e imprimir.</li>
+		<li>Acessar o site do Banco do Brasil no link <a href="https://www63.bb.com.br/portalbb/djo/id/comprovante/consultaDepositoJudicial,802,4647,4650,0,1,1.bbx">https://www63.bb.com.br/portalbb/djo/id/comprovante/consultaDepositoJudicial,802,4647,4650,0,1,1.bbx</a>. Fazer uma busca pelo ID que estava na Guia de Pagamento para encontrar o número da conta judicial</li>
+		<li>Na guia de pagamento, escrever à lápis o número do SEI, a data em que o depósito aparece no Néctar, o número da conta judicial e o número da parcela</li>
+		<li>Copiar a última tabela da planilha <strong>J:\Contabilidade\Provisões\Contingências\Contingência 2025.xlsx</strong> atualizando o mês e ano</li>
+		<li>Deletar linhas da tabela em que o pagamento já foi pago e o processo encerrado</li>
+		<li>Copiar os valores da coluna <strong>"Valores Atualizados"</strong> para a coluna <strong>"Saldo Anterior"</strong> copiando apenas os valores (sem fórmulas)</li>
+		<li>Identificar os processos novos do mês anterior e ajustar as fórmulas que estarão diferentes das demais além de voltar da cor verde para a normal</li>
+		<li>Inserir no final da tabela linhas com os novos processos cujos dados foram baixados nos primeiros itens. Obs: quando tem uma linha nova, a fórmula deve buscar a coluna <strong>"Valor do Capital Inicial"</strong> e não o <strong>"Saldo Anterior"</strong> como acontece com os depósitos que já existem. Pintar a célula que contém os valores novos de verde.</li>
+		<li>Tirar um print da <a href="https://www.quarta.com.br/tabelas/jam.aspx" target="_blank">Tabela de índices do JAM para FGTS</a> e colocar ao lado da planilha e usar a taxa de juros do último mês para atualizar as linhas que são "<i>Caixa Conectivodade</i></li>
+		<img src="../static/images/tabela_JAM.png" />
+		<li>Atualizar o arquivo <strong>ordem.txt</strong> com a coluna que contém os números dos processos para que a planilha seja gerada na ordem correta</li>
+		<li>Acessar o site do Banco do Brasil <a href="https://autoatendimento.bb.com.br/apf-apj-acesso/#/transacao/modulo-seguranca-ajuda/0" target="_blank">https://autoatendimento.bb.com.br/apf-apj-acesso/#/transacao/modulo-seguranca-ajuda/0</a> e colocar para rodar o robô com o número de todas as contas judicias e atualizar a data inicial e a data final</li>
+		<li>Copiar os PDFs renomeados para a pasta <strong>J:\Contabilidade\Provisões\Contingências\Depósitos Judiciais\Extratos 2025\MMMMMM AAAA</strong></li>
+		<li>Rodar o programa ceasahelper da seguinte forma:></li>
+				<p><code>ceasahelper --action depositos_judiciais --directory C:\caminho\do\diretório\dos\pdfs</code></p>
+
+		<li>De base na planilha, atualizar a tabela <strong>Contingência 2025.xlsx</strong></li>
+		<li>A linha do processo de número 5010715-48.2019.4.03.6105 (RECEITA FEDERAL DO BRASIL (PIS/PASEP e COFINS) (CEASA)) deve ser atualizada usando a planilha <strong>J:\Contabilidade\Provisões\Contingências\Depósitos Judiciais\Extratos 2025\Atualização dep.judicial Pis Cofins - 2025.xlsx</strong></li>
+		<li>Importante! Depois que os arquivos PDF foram renomeados, verificar se tem algum terminado com <strong>'-resgate.pdf'</strong> e, se tiver, marcá-lo na planilha e fazer os acertos e lançamentos necessários</li>
+		<li>Fazer o seguinte lançamento no lote de fechamento usando o valor da <strong>Atualização Mensal</strong>:</li>
+		<table class="lancamento">
+			<tr><td>Débito</td><td>1500505001</td><td>Depósitos Judiciais</td><td>Atualização Monetária ref. dep.Recursal</td></tr>
+			<tr><td>Crédito</td><td>3108001020</td><td>Variações Monetárias Ativas</td><td>Atualização Monetária ref. dep.Recursal</td></tr>
+		</table>
+		<li>Se houve resgate com retenção de IR é preciso fazer um lançamento <strong>NO DIA</strong> em que houve o resgate. Se preciso, abrir um lote novo só para isso. O lançamento dever ser da seguinte maneira:</li>
+		<table class="lancamento">
+			<tr><td>Débito</td><td>1102015019</td><td>IRPJ Recolhido Por Estimativa</td><td>IRRF REF. DEVOL. DEP. JUDICIAL PROC. 0010665-02.2021.5.15.0130 BALBINO BATISTA (Alternativa)</td></tr>
+			<tr><td>Crédito</td><td>1500505001</td><td>Depósitos Judiciais</td><td>IRRF REF. DEVOL. DEP. JUDICIAL PROC. 0010665-02.2021.5.15.0130 BALBINO BATISTA (Alternativa)</td></tr>
+		</table>
+		<p>OBS: utilize o CDC 01014100</p>
+		<li>Ver se o valor total de depósitos judiciais bateu com o saldo da conta <strong>1500505001&#8213;Depósitos Judiciais</strong>. Ver se precisa fazer algum lançamento.</li>
+		<li>Atualizar as planilhas abaixo que estão no diretório <strong>J:\Contabilidade\Provisões\Contingências\Acordos\Andamento</strong></li>
+		<ul>
+			<li><strong>Posição Dep.Judicial.xlsx</strong></li>
+			<li><strong>Planilha Semanal - Depositos Judiciais e Condenações_Acordos.xlsx</strong></li>
+			<li><strong>Condenações e Acordos CEASA a partir de 2021.xlsx</strong></li>
+		</ul>
+		<li>Para atualizar a planilha <strong>Planilha Semanal - Depositos Judiciais e Condenações_Acordos.xlsx</strong> nas linhas de <strong>Depósito/ Bloqueio Judicial</strong>, pegar o razão da conta <strong>5102015431 - Indenizações Trabalhistas/Judiciais</strong> e analisar os lançamentos e fazer as atualizações dependendo de cada caso.</li>
+
+	</div>
+</body>
+</html>

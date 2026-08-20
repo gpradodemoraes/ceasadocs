@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Cessão de Funcionário</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../static/css/common.css">
+</head>
+<body>
+	<a class="voltar" href="../index.html">voltar</a>
+	<h1>Cessão de Funcionário</h1>
+	<div class="article-content">
+	<ol>
+		<li>No momento só há um funcionário cendido que é a Keila. O SEI dela é o <strong>CEASA.2023.00000516-86</strong></li>
+		<li>Criar o diretório abaixo colocando o mês e ano adequados:</li>
+		<pre>J:\Contabilidade\Ressarcimento Cessão Funcionário\Keila M.M.M.S. Soares - SEI 2023.00000516-86\2024\Outubro 24</pre>
+		<li>Ir no SEI e baixar o <strong>despacho</strong> e <strong>recibo de pagamento</strong> referente ao mês em questão e salvar no diretório acima.</li>
+		<li>No recibo de pagamento, pegar os valores do Salário Base e Anuênio que somados devem dar o mesmo valor que está na primeira linha do despacho: <strong>Proventos (salário base + anuênio)</strong></li>
+		<img src="../static/images/despacho_cessao_funcionario.png" />
+		<img src="../static/images/recibo_cessao_funcionario.png" />
+		<li>Fazer os seguintes lançamentos no Néctas:</li>
+		<!--
+		<table class="lancamento">
+			<tr><td>Débito</td><td>1101005001</td><td>Bancos Conta Movimento (feito pelo Nilson)</td></tr>
+			<tr><td>Crédito</td><td>1103001017</td><td>Ressarcimento Cessão Funcionário</td></tr>
+		</table>
+		-->
+		<table class="lancamento">
+			<tr><td>Débito</td><td>1103001017</td><td>Ressarcimento Cessão Funcionário</td></tr>
+			<tr><td>Crédito</td><td>5102001105</td><td>Salários Funcionários</td></tr>
+			<tr><td>Crédito</td><td>5102001106</td><td>Anuênio</td></tr>
+			<tr><td>Crédito</td><td>5102001152</td><td>PAT - Vale Alimentação</td></tr>
+			<tr><td>Crédito</td><td>5102001151</td><td>PAT - Vale Refeição</td></tr>
+			<tr><td>Crédito</td><td>5102001154</td><td>Convênio Médico e Odontológico</td></tr>
+			<tr><td>Crédito</td><td>5102001141</td><td>INSS</td></tr>
+			<tr><td>Crédito</td><td>5102001142</td><td>FGTS</td></tr>
+			<tr><td>Crédito</td><td>5102001156</td><td>Seguro de Vida</td></tr>
+			<tr><td>Crédito</td><td>5102001116</td><td>Auxílio Creche</td></tr>
+		</table>
+		<img src="../static/images/lancamentos_cessao_funcionario.png" />
+		<li>Usando os valores que aparece no despacho e no recibo do funcionário atualizar os lançamentos de lote que foram copiados no mês anterior.</li>
+		<li>É necessário também atualizar o número do documento com o ID do despacho.</li>
+		<img src="../static/images/cessao_razao.png" />
+	</div>
+</body>
+</html>

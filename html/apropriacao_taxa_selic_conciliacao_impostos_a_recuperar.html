@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Apropriação Taxa Selic e conciliação impostos a recuperar</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../static/css/common.css">
+</head>
+<body>
+	<a class="voltar" href="../index.html">voltar</a>
+	<h1>Apropriação Taxa Selic e conciliação impostos a recuperar</h1>
+	<div class="article-content">
+	<ol>
+		<li>Abrir a planilha <strong>J:\Contabilidade\Impostos\2024\Atualização IRPJ a Compensar - 2024.xls</strong></li>
+		<li>Copiar a última planilha e atualizar o nome para o mês seguinte</li>
+		<li>Atualizar a data:</li>
+		<pre>DEMONSTRATIVO DA CORREÇÃO ATUALIZADO ATÉ:				30/11/2024</pre>
+		<li>Atualizar a fórmula que aparece em lançar:</li>
+		<pre>=ARREDONDAR.PARA.BAIXO(F27-Out!F27;2)</pre>
+		<li>Ir no site da <a target="_blank" href="https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/pagamentos-e-parcelamentos/taxa-de-juros-selic">Receita Federal Taxe de Juros SELIC</a> e atualizar a tabela conforme os meses anteriores</li>
+		<img src="../static/images/tabela_selic.jpg" />
+		<li>Ver quanto deu em "lançar" e fazer o lançamento no Nectar:</li>
+		<table class="lancamento">
+			<tr><td>Débito</td><td>1102015004</td><td>I.R.P.J. - a Compensar</td><td>Juros Selic S/ IRPJ a Compensar</td></tr>
+			<tr><td>Crédito</td><td>3108001003</td><td>Juros Taxa Selic</td><td>Juros Selic S/ IRPJ a Compensar</td></tr>
+		</table>
+		<li>Conferir se o saldo do Nectar da conta <strong>1102015004</strong> bate com o saldo da planilha</li>
+	</div>
+</body>
+</html>
